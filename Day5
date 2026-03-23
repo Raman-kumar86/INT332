@@ -1,0 +1,53 @@
+1. Image Layer
+A Docker image layer is an immutable, read-only filesystem change that stacks with other layers to form a complete Docker image. Each layer represents a specific instruction in a Dockerfile that modifies the filesystem, 
+such as adding files, installing packages, or modifying configurations. 
+
+2. Image Registry 
+An image registry is a centralized storage system used to host and distribute container images. It acts as a catalog where developers can "push" (upload) their built images and "pull" (download) them for deployment 
+to various environments, such as local machines or Kubernetes clusters.
+
+3. Why Image Registry Require?
+Centralised Storage: Provides a single location to manage container images, preventing them from being scattered across different systems.
+Version Control: Uses tags and digests to identify different versions of an image, allowing you to roll back to previous versions or ensure specific builds are deployed.
+Access Management: Controls who can view, upload, or download images through Role-Based Access Control (RBAC).
+CI/CD Integration: Serves as a bridge between the build stage and the deployment stage in automated pipelines.
+
+4. Types of Registries
+Public Registries: Open to anyone; ideal for open-source projects and general-purpose images. Docker Hub is the most common example.
+Private Registries: Restricted to specific users or organisations. They are used for proprietary code and offer enhanced security features like vulnerability scanning. 
+
+5. Image Naming Convention
+A Docker image name, also known as an image reference, follows a specific structure: [HOST[:PORT]/]NAMESPACE/REPOSITORY[:TAG]
+Required Structure Components
+Component 	            Description	                                                                                                                                   Example
+HOST	                  Specifies the registry location. If omitted, it defaults to Docker Hub (docker.io).	                                                           ghcr.io
+NAMESPACE	              A user or organization name. If omitted for images on Docker Hub, it defaults to library, which is reserved for Docker Official Images.	       dockersamples
+REPOSITORY	            The name of the image project, often referred to as the image name by users.	                                                                 example-voting-app-vote
+TAG	                    An optional identifier to specify a version or variant of the image. If no tag is provided, Docker defaults to latest.	                       pr-311
+A full example of an image name is ghcr.io/dockersamples/example-voting-app-vote:pr-311
+
+6. Tags & Version
+Docker tags are text labels used to identify and manage different versions or variants of a Docker image. You can tag an image during the build process or after it has been built using specific commands.
+
+7. Image Distribution Process
+The standard process for distributing a Docker image involves building the image, pushing it to a container registry, and then allowing other systems to pull and run it. 
+The core component for distribution is the Docker Registry, which acts as a storage and distribution hub for container images
+
+8. The general process is as follows:
+Build the Image: An image is built from a Dockerfile, which is a text file containing all the commands needed to create the image (e.g., specifying a base image, installing software, copying application code).
+Command: docker build -t yourusername/imagename:tag.
+
+Tag the Image: Tagging involves giving the image a human-readable name and version (e.g., yourusername/myapp:1.0) which also indicates the target registry and repository.
+Push to a Registry: The tagged image is uploaded to a container registry, such as Docker Hub (the default public registry) or a private registry (like Amazon ECR or Google Artifact Registry). This makes the image available to others.
+
+Command: docker push yourusername/imagename:tag
+(Requires prior login using docker login)
+
+Pull and Run the Image: Other users or systems with access to the registry can then download the image to their local machine and run it as a container.
+Command to pull: docker pull yourusername/imagename:tag
+Command to run: docker run yourusername/imagename:tag 
+
+9. Role of Image Registry in CI/CD Pipelines
+acting as the critical link between the build and deployment phases, while ensuring efficiency, consistency, and security
+
+

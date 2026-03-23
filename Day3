@@ -1,0 +1,51 @@
+1. Container Runtime
+A container runtime is low-level software that manages the entire lifecycle of a container—pulling images, unpacking them, and running them as isolated processes on a host operating system. 
+It handles container execution, resource allocation (CPU/memory), and security boundaries. Popular examples include runC, containerd, and CRI-O.
+
+2. Types of Container Runtime
+a. Low-Level Runtimes (OCI Runtimes):
+Role: The "engine" that performs the actual work of starting and stopping containers by interacting with Linux namespaces and cgroups.
+Examples:
+runc: The industry-standard, OCI-compliant reference implementation.
+crun: A high-performance, lightweight alternative written in C.
+runhcs: Designed for Windows container environments.
+
+b. High-Level Runtimes (Container Engines):
+Role: Manage the full container lifecycle, including image pulling, storage, and networking. They rely on low-level runtimes to actually execute the container process.
+Examples:
+containerd: Widely used in Kubernetes and Docker; manages images and execution.
+CRI-O: Built specifically to satisfy the Kubernetes Container Runtime Interface (CRI).
+Docker Engine: A comprehensive platform that includes high-level management and CLI tools.
+
+3. Linux kernel
+The Linux kernel is a free, open-source, monolithic Unix-like operating system core created by Linus Torvalds in 1991. It acts as the intermediary between hardware and software, managing memory, CPU processes, 
+and device drivers. It powers a vast range of systems from mobile devices (Android) to servers, supercomputers, and embedded systems.
+
+4. Process isolation  
+is a security and stability mechanism that prevents running applications (processes) from interfering with each other's memory or data. It ensures each process has its own virtual address space, 
+containing crashes or malicious actions within a single app, which is critical for system reliability. Key methods include hardware-enforced virtual memory, OS-level namespaces, sandboxing, and containers.
+
+5. Namespace
+a namespace is primarily a mechanism used for logical isolation and organization of resources within a shared environment, most notably in Kubernetes and Docker. 
+They prevent naming conflicts and help manage access controls and resource allocation for different teams, projects, or environments (e.g., development, staging, production)
+
+6. Types of namespace
+a. PID namespace
+A PID namespace is a Linux kernel feature that isolates the process ID number space, allowing different processes in distinct namespaces to have the same PID. 
+This isolation is a fundamental building block for container technologies like Docker and Podman, ensuring that processes inside a container cannot see or interfere with processes on the host or in other containers.
+
+b. Network namespace
+A network namespace in Linux is a lightweight, isolated instance of the network stack, providing its own network interfaces, IP addresses, routing tables, and firewall rules. 
+Essential for containers and virtualization, they allow processes to have separate network environments on the same host, with connectivity achieved via virtual ethernet (veth) pairs
+
+c. Mount namespaces
+Mount namespaces in Linux provide process-level isolation of the mount point tree, allowing containers or specific processes to have their own unique file system hierarchies. 
+They are a fundamental building block for container runtimes (Docker, Kubernetes) to isolate / and other mounts from the host, preventing modifications in one namespace from affecting others or the root system
+
+d. UTS namespace
+A UTS (UNIX Time-sharing System) namespace is a Linux kernel feature that isolates two key system identifiers: the hostname and the NIS domain name. 
+It enables processes within a container or isolated environment to have a unique hostname, independent of the host system, which is essential for containerization.
+
+e. User namespace
+A user namespace is a Linux kernel feature that isolates security-related identifiers, primarily User IDs (UIDs) and Group IDs (GIDs). It allows a process to have different privileges inside the namespace than it has outside. 
+For example, a process can run as root (UID 0) inside a container while being a standard, unprivileged user on the host system.

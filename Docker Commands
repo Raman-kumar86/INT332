@@ -1,0 +1,31 @@
+1. docker pull <image_name>:
+command is used to download a Docker image from a registry (such as Docker Hub) to your local machine.
+
+2. docker images:
+command is used to list the Docker images that are available on your local system.
+
+3. docker run <image_name>:
+command is used to create and start a new container from a specified Docker image.
+
+4. docker run -it <image_name> (-it -> interact)
+is used to start a new Docker container and interact with it via a terminal.
+
+5. docker ps -a 
+command is used to list all containers on your system, regardless of their current state.
+
+6. docker ps
+command is used to list all containers that is on running state.
+
+7. docker start container_name/container_ID
+command is used to restart a container that is currently in a stopped state.
+
+8. docker stop container_name 
+command is used to stop a container that is currently in a running state.
+
+9. docker rmi image_name/image_id
+is used to remove one or more Docker images
+
+10. docker rm <container_name_or_id>
+is used to remove remove a container
+
+11. 

@@ -1,0 +1,24 @@
+1. Real world analogy behind namespaces
+Namespaces are a mechanism for partitioning resources, code, or data into logically grouped, isolated, and distinct sets to avoid naming collisions.
+Why We Use Them
+Avoiding Collisions: Different libraries or teams can use the same name for a variable, class, or service.
+Organization: Logically organizing related resources, like grouping all data-related tools together.
+Security & Isolation: Restricting access so one team’s malfunctioning application doesn't crash another team's application.
+
+2. Control Groups(cgroups)
+Control Groups(cgroups) are a fundamental Linux kernel feature.
+
+3. Need of control groups
+used to limit, account for, and isolate the resource usage (CPU, memory, disk I/O, network bandwidth, etc.) of a collection of processes
+
+4. Types of resources controlled by cgroups
+CPU: Regulates distribution of CPU cycles via weights, quotas, and bandwidth limits.
+Memory: Manages memory consumption, including userland memory (page cache/anonymous memory) and swap usage.
+I/O (blkio/io): Limits read/write bandwidth and latency for block devices.
+PIDs: Restricts the number of tasks (processes) a group can spawn.
+Devices: Controls access to specific hardware devices.
+Network: Prioritizes traffic or classifies packets for network traffic control.
+
+5. Container Image
+A Docker container image is a lightweight, standalone, and executable software package that serves as a read-only template for creating Docker containers. 
+It bundles everything needed to run an application consistently across any computing environment (development, testing, or production), including the application code, a runtime, system tools, libraries, and settings

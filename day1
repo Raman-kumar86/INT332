@@ -1,0 +1,28 @@
+DevOps 
+1:Introduction to DevOps
+DevOps is a set of practices, tools, and cultural philosophies that bridges development (Dev) and operations (Ops) teams to shorten the systems development life cycle. By emphasizing automation, collaboration, 
+and continuous improvement, it enables organizations to deliver high-quality software faster and more reliably. Key elements include CI/CD, Infrastructure as Code (IaC), and monitoring.
+  
+2. The DevOps Lifecycle (8 Phases)
+DevOps operates in a continuous loop: 
+Plan: Define, analyze, and prioritize requirements.
+Code: Develop and review code, using version control like Git.
+Build: Compile, package, and containerize applications (e.g., Docker).
+Test: Automate testing (e.g., Selenium) to ensure quality.
+Release: Manage, track, and deploy code to production.
+Deploy: Automate the release to production servers.
+Operate: Manage infrastructure, typically using IaC tools like Ansible.
+Monitor: Track performance and user experience using tools like Prometheus or Splunk.
+
+3. Key Benefits
+Velocity: Faster, more frequent releases (e.g., daily).
+Reliability: Improved quality through automated testing and monitoring.
+Efficiency: Reduced manual effort via automation.
+Scalability: Easier to manage complex systems and infrastructure.
+
+4. Common DevOps Tools
+Version Control: Git, GitHub, GitLab.
+CI/CD: Jenkins, GitLab CI, GitHub Actions.
+Containerization: Docker, Kubernetes.
+Infrastructure as Code: Terraform, Ansible.
+Monitoring: Prometheus, Grafana, Nagios.
