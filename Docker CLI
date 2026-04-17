@@ -1,0 +1,55 @@
+⚙️ Basic Docker CLI Commands (Must Know 🔥)
+🔹 1. Docker version check
+docker --version
+🔹 2. System info
+docker info
+📦 Image Commands
+🔹 3. Image download (pull)
+docker pull node
+🔹 4. All images dekho
+docker images
+🔹 5. Image delete karo
+docker rmi <image_id>
+🟦 Container Commands
+🔹 6. Container run karo
+docker run hello-world
+
+👉 First test command ✔
+
+🔹 7. Running containers dekho
+docker ps
+🔹 8. Sab containers dekho (stopped bhi)
+docker ps -a
+🔹 9. Container stop karo
+docker stop <container_id>
+🔹 10. Container start karo
+docker start <container_id>
+🔹 11. Container delete karo
+docker rm <container_id>
+🔧 Advanced Useful Commands
+🔹 12. Interactive container (terminal ke andar terminal 😄)
+docker run -it ubuntu bash
+
+👉 Isme tum container ke andar ka Linux use kar sakte ho
+
+🔹 13. Port mapping (VERY IMPORTANT 🔥)
+docker run -p 3000:3000 my-app
+PS C:\Users\Administrator> docker stop web_server
+web_server
+PS C:\Users\Administrator> docker rm web_server
+web_server
+PS C:\Users\Administrator> docker run -d -p 8080:80 --name web_server httpd
+d7c8fc7d31fae7c5d4b105b07e8f0e83e4c86bd8b7b9c0da458ff69a808370b5
+
+👉 Format:
+
+host_port : container_port
+🔹 14. Container logs dekho
+docker logs <container_id>
+🔹 15. Container ke andar jao
+docker exec -it <container_id> bash
+🧹 Cleanup Commands
+🔹 16. Sab stopped containers delete
+docker container prune
+🔹 17. Unused images delete
+docker image prune

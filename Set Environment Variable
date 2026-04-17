@@ -1,0 +1,94 @@
+🧱 1. Basic Structure (single variable)
+docker run -e KEY=VALUE IMAGE
+
+👉 Example:
+
+docker run -e MY_NAME=Harpreet ubuntu
+🧱 2. Multiple Variables Structure
+docker run -e KEY1=VALUE1 -e KEY2=VALUE2 -e KEY3=VALUE3 IMAGE
+
+👉 Example:
+
+docker run -it \
+  -e MY_NAME=Harpreet \
+  -e APP_ENV=dev \
+  -e PORT=5000 \
+  ubuntu bash
+🧱 3. Using --env-file
+docker run --env-file filename IMAGE
+
+👉 Example:
+
+docker run -it --env-file .env ubuntu bash
+🧱 4. Full Combined Structure
+docker run [OPTIONS] \
+  -e KEY=VALUE \
+  --env-file file.env \
+  IMAGE \
+  COMMAND
+
+👉 Example:
+
+docker run -it \
+  -e DEBUG=true \
+  --env-file .env \
+  ubuntu bash
+🧠 General Formula
+docker run + options + environment variables + image + command
+🔍 Breakdown
+docker run → container start
+-e KEY=VALUE → ek variable set
+--env-file → multiple variables file se
+IMAGE → jaise Ubuntu
+COMMAND → jaise bash
+🎯 Pro Tip
+Few variables → use -e
+Many variables → use --env-file
+Permanent → use Dockerfile (ENV)
+
+
+-d ka matlab hota hai detached mode 👇
+
+🔍 Command
+docker run -d IMAGE
+
+Using Docker, this means:
+
+👉 Container background me run karega, terminal ko block nahi karega
+
+🧠 Simple samajh
+Without -d → container foreground me chalta hai (terminal busy)
+With -d → container background me chalta hai (terminal free)
+📦 Example
+docker run -d nginx
+
+👉 Yeh:
+
+Nginx container start karega
+Background me run karega
+Tumhara terminal free rahega
+📤 Output kya aata hai?
+a1b2c3d4e5f6...
+
+👉 Yeh container ID hota hai
+
+🔎 Check running containers
+docker ps
+📜 Logs dekhne ke liye
+docker logs <container_id>
+🛑 Stop karne ke liye
+docker stop <container_id>
+🎯 Real Use
+
+-d use hota hai jab:
+
+Web server run karna ho
+Database run karna ho
+Long-running service chalani ho
+🆚 Quick Comparison
+Mode	Behavior
+-it	interactive (andar jaake kaam karo)
+-d	background (service chalti rahe)
+🧠 Easy line yaad rakhne ke liye
+
+-d = “run and disappear (background me chala ja)”

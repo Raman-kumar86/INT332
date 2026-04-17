@@ -1,0 +1,28 @@
+🔁 Fork
+
+A fork is done on a platform like GitHub (or GitLab, Bitbucket).
+
+It creates a copy of someone else’s repository in your own account.
+Used when you don’t have direct write access or want your own version.
+Common in open-source contributions.
+
+👉 Example:
+You fork a repo → now you have your own version under your GitHub profile.
+
+💻 Clone
+
+A clone is a Git command you run locally.
+
+It downloads a repository (your own or someone else’s) to your computer.
+Creates a working copy with full history.
+
+👉 Command:
+
+git clone https://github.com/user/repo.git
+🔑 Key Differences
+| Feature          | Fork                                   | Clone                              |
+| ---------------- | -------------------------------------- | ---------------------------------- |
+| Where it happens | Online (GitHub)                        | Local machine                      |
+| Purpose          | Copy repo to your account              | Copy repo to your computer         |
+| Ownership        | You own the fork                       | Same repo, just local copy         |
+| Use case         | Contributing / modifying independently | Development, editing, running code |

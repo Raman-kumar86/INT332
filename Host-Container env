@@ -1,0 +1,76 @@
+Chalo is example ko properly step-by-step samajhte hain 👇 — yeh host → container environment variable passing ka concept hai (important 🔥)
+
+🧩 Step 1: Host pe variable set karna
+🐧 Ubuntu (Linux / Mac)
+export APP_PORT=8080
+🪟 PowerShell (Windows)
+$env:APP_PORT=8080
+
+👉 Iska matlab:
+
+Tumne apne system (host machine) pe variable banaya
+Naam: APP_PORT
+Value: 8080
+🔍 Check karna
+Linux:
+echo $APP_PORT
+PowerShell:
+echo $env:APP_PORT
+🧩 Step 2: Docker command
+docker run -e APP_PORT=$env:APP_PORT nginx env
+docker run -e APP_PORT=$APP_PORT nginx env
+
+Yeh Docker ka command hai
+
+🔑 Main Concept
+
+👉 Tum host ka variable container ke andar pass kar rahe ho
+
+🔍 Breakdown
+🧪 Command structure
+docker run -e APP_PORT=<value> nginx env
+-e → environment variable set karta hai
+nginx → Nginx image
+env → container ke andar variables print karega
+⚡ Difference samjho
+🪟 PowerShell
+docker run -e APP_PORT=$env:APP_PORT nginx env
+
+👉 $env:APP_PORT = Windows syntax
+
+🐧 Linux / Ubuntu
+docker run -e APP_PORT=$APP_PORT nginx env
+
+👉 $APP_PORT = Linux syntax
+
+🔄 Kya ho raha hai internally
+Host pe variable set kiya (APP_PORT=8080)
+Docker run kiya
+-e ke through value pass ki
+Container ke andar variable create ho gaya
+env command usko print kar raha hai
+📤 Output (andar container)
+APP_PORT=8080
+PATH=...
+HOSTNAME=...
+🧠 Simple language me
+
+“Host pe jo variable hai, usko Docker container ke andar bhej diya”
+
+🎯 Important Point
+
+❗ Agar host variable set nahi hai:
+
+docker run -e APP_PORT=$APP_PORT nginx env
+
+👉 to container me empty aa sakta hai:
+
+APP_PORT=
+🧠 Real-world use
+Port config (APP_PORT)
+DB credentials
+API keys
+App settings
+🔥 One-line summary
+
+Host variable → -e → Container variable

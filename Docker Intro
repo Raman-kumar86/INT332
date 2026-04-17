@@ -1,0 +1,10 @@
+What is Docker (in very simple words)?
+
+Think of Docker like a “ready-made box” (container) that has:
+
+your app
+all dependencies (libraries, runtime, tools)
+
+👉 So instead of saying
+“it works on my machine but not yours”
+Docker ensures it works everywhere.

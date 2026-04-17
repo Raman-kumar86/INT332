@@ -1,0 +1,37 @@
+Inside this same running container, you are required to:
+Create a new directory named /project.
+Inside /project, create a file called report.txt.
+Add the following text inside the file:
+    This is our container interaction with our host machine.
+Verify the file content.
+Copy report.txt from the container to your Desktop.
+Create another file named notes.txt in the same /project directory.
+Append the text:
+Verify that both files exist inside /project.
+
+
+docker start -ai my_app
+root@53ff2df4de8c:/# mkdir /project
+root@53ff2df4de8c:/# cd /project
+root@53ff2df4de8c:/project# echo "This is our container interaction with our host machine.">report.txt
+root@53ff2df4de8c:/project# cat report.txt
+This is our container interaction with our host machine.
+root@53ff2df4de8c:/project# exit
+exit
+✅ Step 5: Copy file to Desktop (IMPORTANT)
+docker cp my_app:/project/report.txt C:\Users\Administrator\OneDrive\Desktop\report.txt
+✅ Step 6: Go back into container
+docker start -ai my_app
+✅ Step 7: Create notes.txt
+cd /project
+echo "This is an additional notes file." > notes.txt
+✅ Step 8: Append text (important concept)
+echo "Appending more information." >> notes.txt
+✅ Step 9: Verify both files exist
+ls /project
+
+👉 Output should show:
+
+report.txt  notes.txt
+✅ Step 10: Verify content of notes.txt
+cat notes.txt

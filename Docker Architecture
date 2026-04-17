@@ -1,0 +1,103 @@
+🏗️ Docker Architecture (Overview)
+
+Docker follows a client-server architecture where different components work together to build, run, and manage containers.
+
+Main components:
+
+Docker Client
+Docker Daemon
+Docker Registry
+
+1️⃣ Docker Client
+
+The Docker Client is the interface through which users interact with Docker.
+It sends commands to the Docker Daemon.
+
+Uses commands like docker run, docker build
+Communicates via REST API
+
+👉 Example:
+
+docker run nginx
+
+2️⃣ Docker Daemon (dockerd)
+
+The Docker daemon is the core engine that runs in the background.
+
+Builds images
+Runs containers
+Manages networks and volumes
+Listens to Docker API requests
+
+3️⃣ Docker Registry
+
+A Docker Registry is a storage system where Docker images are stored and shared.
+
+Public or private
+Images can be pushed and pulled
+
+👉 Example:
+Docker Hub
+
+🌐 Public Registry
+
+A public registry is a repository where Docker images are openly available to everyone.
+
+Anyone can pull images
+Anyone (usually with an account) can push images
+Used for sharing open-source projects
+
+👉 Example:
+
+Docker Hub
+
+🔒 Private Registry
+
+A private registry is restricted and only accessible to authorized users or teams.
+
+Secure and controlled access
+Used by companies for internal projects
+Requires authentication
+
+👉 Examples:
+
+Amazon Elastic Container Registry
+Azure Container Registry
+
+🧱 Docker Object Types (Detailed Explanation)
+
+These are the main building blocks of Docker.
+
+1️⃣ Container
+A container is a running instance of a Docker image.
+
+It executes your application
+Isolated environment (separate from host system)
+Lightweight and fast
+
+👉 Example: Running a web app using Nginx inside a container
+
+2️⃣ Image
+A Docker image is a read-only template used to create containers.
+
+Contains app code + dependencies + libraries
+Built using Dockerfile
+Cannot be modified once created
+
+3️⃣ Network
+A Docker network allows containers to communicate with each other.
+
+Containers can talk via IP or container name
+Supports isolation and security
+
+👉 Example:
+
+4️⃣ Volume
+A volume is used for persistent data storage in Docker.
+
+Data is stored outside the container
+Even if container is deleted, data remains safe
+
+👉 Example:
+
+Database data stored in a volume

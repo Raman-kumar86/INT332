@@ -1,0 +1,30 @@
+.How would you use the docker run command with -it, -e, -v, and --name to:
+•	Set an environment variable APP_ENV=production.	
+•	Bind a local directory /app/data to /data inside the container.	
+•	Name the container my_app.	
+
+
+PS C:\Users\Administrator> mkdir C:\app\data                    
+
+
+    Directory: C:\app
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          4/5/2026  11:03 AM                data
+
+
+PS C:\Users\Administrator> docker run -it -e APP_ENV=production -v C:\app\data:/data --name my_app ubuntu
+root@53ff2df4de8c:/# echo $APP_ENV
+production
+root@53ff2df4de8c:/# ls/data
+bash: ls/data: No such file or directory
+root@53ff2df4de8c:/# nano file.txt
+bash: nano: command not found
+root@53ff2df4de8c:/# ls /data
+root@53ff2df4de8c:/# echo "Hello Docker"> /data/test.txt
+root@53ff2df4de8c:/# cat /data/test.txt
+Hello Docker
+root@53ff2df4de8c:/# exit
+exit

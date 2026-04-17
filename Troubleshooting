@@ -1,0 +1,69 @@
+🧠 🛠️ Complete Troubleshooting Guide (Step-by-Step)
+✅ Step 1: Check existing containers
+docker ps -a
+
+👉 Look for:
+
+Same container name
+Stopped containers
+✅ Step 2: If name already exists
+✔ Remove it completely:
+docker rm -f web_server1
+
+👉 This fixes:
+
+“container name already in use” error
+✅ Step 3: Check running containers (port usage)
+docker ps
+
+👉 Look for:
+
+0.0.0.0:8080->80/tcp
+✅ Step 4: If port already in use
+
+👉 Change port:
+
+docker run -d -p 8081:80 --name web_server1 nginx
+✅ Step 5: Run container properly
+docker run -d -p 8080:80 --name web_server1 nginx
+✅ Step 6: Verify container is running
+docker ps
+
+👉 Status should be:
+
+Up ...
+✅ Step 7: Test in browser
+http://localhost:8080
+
+👉 If page loads → success ✅
+
+🚨 If still error → advanced fixes
+🔹 Clean stopped containers
+docker container prune
+🔹 Check logs (debugging)
+docker logs web_server1
+🔹 Restart Docker (rare cases)
+
+👉 Sometimes Docker Desktop glitch happens
+
+🎯 Golden Rules (VERY IMPORTANT)
+🔥 Rule 1:
+
+👉 Container name must be unique
+
+🔥 Rule 2:
+
+👉 Port must be free
+
+🔥 Rule 3:
+
+👉 Image must support the port (like nginx → 80)
+
+🔥 Rule 4:
+
+👉 Always follow syntax:
+
+docker run [OPTIONS] IMAGE
+🧠 Quick Memory Shortcut
+
+👉 “Check → Remove → Run → Verify → Open”
